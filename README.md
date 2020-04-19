@@ -1,9 +1,12 @@
+![logo](https://github.com/shreyashravi/fjord.jpg/blob/master/fjord.jpg) <br />
+
 ## Welcome
 
 This repo contains the dotfiles for my first rice setup on Arch-Linux. <br />
 
 ## Table of contents
 
+- wallpaper jpg file
 - fonts
 - i3 configuration file
 - kitty configuration file
