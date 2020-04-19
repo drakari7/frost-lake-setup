@@ -1,4 +1,4 @@
-![logo](https://github.com/shreyashravi/fjord.jpg/blob/master/fjord.jpg) <br />
+![logo](https://github.com/shreyashravi/arch-rice/blob/master/arch-rice.png) <br />
 
 ## Welcome
 
