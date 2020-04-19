@@ -8,15 +8,16 @@ This repo contains the dotfiles for my first rice setup on Arch-Linux. <br />
 - i3 configuration file
 - kitty configuration file
 - polybar configuration files
+- compton.conf file
 
 ## Dependancies
 - The icon fonts are required by polybar to work, otherwise you may get **Dropping character** errors from running polybar.
 
 - [compton-tryone-git](https://github.com/tryone144/compton)
-Required for the kawase blur effect. Arch users can install it from AUR [tryone-fork of compton](https://aur.archlinux.org/packages/compton-tryone-git/)
+Required for the kawase blur effect. Arch users can install it from AUR [tryone-fork of compton.](https://aur.archlinux.org/packages/compton-tryone-git/)
 
 - [polybar-spotify-module](https://github.com/mihirlad55/polybar-spotify-module)
-Required by polybar to use the spotify module. Arch users can install it from AUR [link](https://aur.archlinux.org/packages/polybar-spotify-module/)
+Required by polybar to use the spotify module. Arch users can install it from AUR,[link.](https://aur.archlinux.org/packages/polybar-spotify-module/)
 
 
 
@@ -43,7 +44,7 @@ cp -r * ~/.config/
 ```
 
 ## Kitty config files
-Copy the config files. [Additional documentation can be found here](https://sw.kovidgoyal.net/kitty/conf.html). <br /> 
+Copy the config files. [Additional documentation for kitty customization.](https://sw.kovidgoyal.net/kitty/conf.html). <br /> <br />
 You might want to change the color theme as per your wish. Simply change the values of the colors in theme.conf, or find a preset on the internet. <br />
 
 ## i3 config file
@@ -63,3 +64,16 @@ Most common sources of errors arise from missing fonts. <br />
 
 - if the battery module isn't working, try setting battery=BAT1 instead of BAT0.
 - A successful method of debugging that worked for me was, run the individual bar commands (top and bottom,found in launch.sh) in a terminal, and note the output. Polybar gives a very detailed output, and you will be able to figure out the issues by googling the error messages.
+
+## Tryone-compton setup
+
+It is common to have picom already installed on your distro. If you want to achieve the blur effect on windows, install [compton-tryone-git](https://github.com/tryone144/compton) , on your system. You may need to remove picom as they interfere with each other (if you use an aur helper, it will automatically ask you to do so).
+
+Then, copy and place the ./compton.conf file in your ~/.config folder, and the blur effect should take place (you will need to reboot/reload your WM). You can edit the file to decide which xwindows you want to blur, by default it blurs kitty and vscode. Change the opacity-rule entries in the format given, 
+
+```
+# %n is the amount of opacity you want. 0 is maximum opacity and 100 is no opacity.
+# %c is the class of the window. You can find class by typing 'xprop' in terminal and clicking on the window you want to find the class of.
+
+opacity-rule = [ "%n:class_g = '%c'" ]
+``` 
