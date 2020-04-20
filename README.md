@@ -59,6 +59,24 @@ The original polybar setup has been borrowed from this brilliant [polybar-theme-
 
 I have configured some of the modules, tweaked the layout, and most notably installed the spotify module seperately. 
 
+**For enabling the spotify module**
+[Original Documentation. If you encounter errors follow the instructions there properly](https://github.com/mihirlad55/polybar-spotify-module)
+
+Once you have installed the polybar-spotify-module, you will have to start the spotify-listener service with
+```bash
+#start service
+systemctl --user start spotify-listener.service
+
+#to autostart the service on boot
+systemctl --user enable spotify-listener.service
+```
+
+It is possible that the service will fail to load on startup if it tries to start before X begins it's session (requires the DBus service). In that case keep the service disabled and add a line to your WM autostart file to start the service on every boot. If you are using i3, add this line to your .config/i3/config file.
+
+```bash
+exec --no-startup-id systemctl --user start spotify-listener.service
+```
+
 ***Do not forget to install the polybar-spotify-module mentioned above if you want to use it***
 
 Most common sources of errors arise from missing fonts. <br />
